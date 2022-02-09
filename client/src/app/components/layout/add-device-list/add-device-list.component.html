@@ -1,0 +1,25 @@
+<div class="modal-header">
+  <h4 class="modal-title">Add Devices/Hosts</h4>
+  <button type="button" class="close btn btn-sm btn-outline-primary" aria-label="Close" (click)="close()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="deviceForm">
+    <div class="form-group">
+      <label for="deviceName" class="control-label">Hostname:*</label>
+      <input type="text" class="form-control" id="deviceName" formControlName="deviceName" >
+      <div class="to-validate" *ngIf="!deviceForm.controls['deviceName'].valid && deviceForm.controls['deviceName'].touched">{{ validMsg }}</div>
+    </div>
+    <div class="form-group">
+      <label for="deviceIp" class="control-label">Loopback:*</label>
+      <input type="text" maxlength="15" class="form-control" id="deviceIp" formControlName="deviceIp" >
+      <span class="fs-6 text-muted">(eg. 192.12.3.2)</span>
+      <div class="to-validate" *ngIf="!deviceForm.controls['deviceIp'].valid && deviceForm.controls['deviceIp'].touched">{{ validIpMsg }}</div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-outline-secondary" (click)="close()">Close</button>
+  <button class="btn btn-primary" (click)="addDevice(deviceForm.value); close()" [disabled]="!deviceForm.valid">Submit</button>
+</div>

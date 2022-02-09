@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+.btn {
+  outline: none;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+
+.to-validate {
+  color: indianred;
+  font-size: 12px;
+}
